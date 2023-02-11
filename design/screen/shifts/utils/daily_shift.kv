@@ -1,0 +1,56 @@
+#:include design/screen/utils/special_label.kv
+
+<DailyShift>:
+    firstItem: '' ### dan ili sluzba
+	firstDriver: ''
+    secondItem: '' ### sluzba
+	secondDriver: ''
+	bg_color1: (0,0,0,0)
+	bg_color2: (0,0,0,0)
+	GridLayout:
+		rows: 2
+		columns: 2
+		SpecialLabel:
+			background_color: root.bg_color1
+			text: root.firstItem
+			color: 1, 1, 1, 1
+			halign: 'center'
+			valign: 'center'
+			text_size: self.width/1.05, None
+			canvas.after:
+				Color:
+					rgba: .5, .5, .5, 1
+				Line:
+					width: 2
+					rectangle: self.x, self.y, self.width, self.height
+		Button:
+			size_hint: 0.35, 0.5
+			text: root.firstDriver
+			text_size: self.width/1.05, None
+			halign: 'center'
+			background_color: root.bg_color1
+			#font_size: (self.width**2 + self.height**2) / 8**4
+			font_size: '13dp' # kivy default = 15 sp
+			on_release:
+				root.callInfoButton(self.text)
+		SpecialLabel:
+			background_color: root.bg_color2
+			color: 1, 1, 1, 1
+			halign: 'center'
+			valign: 'center'
+			text: root.secondItem
+			text_size: self.width/1.05, None
+			canvas.after:
+				Color:
+					rgba: .5, .5, .5, 1
+				Line:
+					width: 2
+					rectangle: self.x, self.y, self.width, self.height
+		Button:
+			size_hint: 0.35, 0.5
+			text: root.secondDriver
+			text_size: self.width/1.05, None
+			background_color: root.bg_color2
+			halign: 'center'
+			font_size: '13dp' # kivy default = 15 sp
+			on_release: root.callInfoButton(self.text)

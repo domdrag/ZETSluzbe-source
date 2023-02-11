@@ -1,0 +1,35 @@
+<CallInfoPopup>:
+    auto_dismiss: True
+	title: "Kolega"
+	size_hint: 0.8, 0.5
+	
+	BoxLayout:
+		orientation: "vertical"
+		BoxLayout:
+			Label:
+				id: nameId
+				text: root.name
+				text_size: self.width, None
+				halign: 'center'
+			Button:
+				size_hint: 0.5, 0.5
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				text: "Kopiraj"
+				on_release: root.copyNameOnClipboard()
+		BoxLayout:
+			Label:
+				id: phoneNumberId
+				text: root.phoneNumber
+				text_size: self.width, None
+				halign: 'center'
+			Button:
+				size_hint: 0.5, 0.5
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				text: "Kopiraj"
+				on_release: root.copyPhoneNumberOnClipboard()
+		Button:
+			text: "Nazovi"
+			on_release: root.callNumber()
+		Button:
+			text: 'Spremi u imenik'
+			on_release: root.saveContact()

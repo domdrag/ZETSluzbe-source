@@ -1,0 +1,28 @@
+#:include design/screen/utils/special_label.kv
+
+<DailyService>:
+    day: ''
+    service: ''
+	bg_color: (0,0,0,0)
+    GridLayout:
+        rows: 2
+        Label:
+            text: root.day
+            canvas.before:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+        SpecialLabel:
+			readonly: True
+			background_color: root.bg_color
+			color: 1, 1, 1, 1
+            halign: 'center'
+            text: root.service
+            canvas.after:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height

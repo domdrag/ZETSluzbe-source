@@ -1,0 +1,18 @@
+#:include design/screen/login/login_screen.kv
+#:include design/screen/services/services_screen.kv
+#:include design/screen/shifts/shifts_screen.kv
+
+ZETScreenManager:
+	loginScreen: loginScreenId
+	servicesScreen: servicesScreenId
+	shiftsScreen: shiftsScreenId
+
+    LoginScreen:
+        id: loginScreenId
+			
+    ServicesScreen:
+		id: servicesScreenId
+		
+    ShiftsScreen:
+		id: shiftsScreenId
+		

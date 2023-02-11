@@ -1,0 +1,29 @@
+#:include design/screen/shifts/utils/daily_shift.kv
+#:include design/screen/shifts/utils/call_info_popup.kv
+
+<ShiftsScreen>:
+	name: 'shiftsScreen'
+	shiftsScreenRecycleView: shiftsScreenRecycleViewId
+	
+    RecycleView:
+        viewclass: 'DailyShift'
+        id: shiftsScreenRecycleViewId
+        RecycleBoxLayout:
+            default_size: None, dp(200)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+    Button:
+        pos_hint:{"x":0.1,'bottom': 1}
+        size_hint: 0.4, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: "Sluzbe"
+        on_release: root.servicesButton()
+		
+    Button:
+        pos_hint:{"x":0.5,'bottom': 1}
+        size_hint: 0.4, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: 'Odjavi se'
+        on_release: root.logoutButton()

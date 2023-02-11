@@ -1,0 +1,42 @@
+#:include design/screen/login/utils/update_popup.kv
+
+<LoginScreen>:
+	name: 'loginScreen'
+	offNumTextInput: offNumTextInputId
+	
+    FloatLayout:
+        Label:
+			pos_hint: {"x":0.3, "top":0.9}
+            size_hint: 0.4, 0.1
+			font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Sluzbeni broj: "
+			
+        TextInput:
+			pos_hint: {"x": 0.3 , "top":0.8}
+			size_hint: 0.4, 0.1
+			font_size: (root.width**2 + root.height**2) / 17**4
+            id: offNumTextInputId
+            text: '2545'
+            multiline: False
+			
+		Label:
+			pos_hint: {"x":0.3, "top":0.5}
+            size_hint: 0.4, 0.1
+			font_size: (root.width**2 + root.height**2) / 17**4
+            text: root.warningMessage
+			color: root.warningMessageColor
+
+        Button:
+            pos_hint:{"x":0.1,'bottom': 1}
+			size_hint: 0.4, 0.1
+			font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Prijavi se"
+            on_release: root.loginButton()
+					
+		Button:
+            pos_hint:{"x":0.5,'bottom': 1}
+			size_hint: 0.4, 0.1
+			font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Azuriraj"
+            on_release: root.updateButton()
+			disabled: False if root.ADMIN else True

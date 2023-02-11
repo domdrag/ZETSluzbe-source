@@ -1,0 +1,1 @@
+Github ne dozvoljava prazan folder, a treba postojati kad pullas i deployas na android!

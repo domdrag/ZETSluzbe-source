@@ -1,0 +1,10 @@
+<BackgroundColor@Widget>
+    background_color: .5, .5, .5, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<SpecialLabel@Label+BackgroundColor>
